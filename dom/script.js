@@ -13,7 +13,7 @@ const createTask =(evento)=>{
     const task= document.createElement('li')
     task.classList.add('card');
     input.value='';
-    
+    const contenido=''
 }
 
 btn.addEventListener('click', createTask)
