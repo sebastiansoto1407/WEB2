@@ -1,50 +1,70 @@
 <!DOCTYPE html>
-<html lang="es-mx">
+<html lang="es-MX">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio individual</title>
+    <meta name="description" content="Información sobre Andres Sebastian Soto Astete - Estudiante de Ingeniería en Sistemas Informáticos">
+    <title>Sobre mí | Portafolio personal</title>
     <link rel="stylesheet" href="styles/styles.css">
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 </head>
 <body>
     <header class="header">
-        <nav class="header__menu">
-            <a class="header__menu__link" href="index.html">Home</a>
-
+        <nav class="header__nav">
+            <ul class="header__menu">
+                <li><a class="header__menu__link" href="index.html">Home</a></li>
+                
+                <li><button id="theme-toggle" class="theme-toggle">🌙</button></li>
+            </ul>
         </nav>
     </header>
-    <main class="presentacion">
+    
+    <main class="presentacion about">
         <section class="presentacion__contenido">
-            <h1 class="presentacion__contenido__titulo">Sobre mí</h1>
-                <p class="presentacion__contenido__texto">Tengo 19 años, estudio ing sistemas informaticos, estoy en tercer semestre, tengo 1 hermana de 11 años, Esudie en el colegio Sagrado Corazon De Jesus, me gusta 
-
-                </p>
-                <p class="presentacion__contenido__texto">
-                    1. “Antes que nada, la preparación es la clave del éxito” — Alexander Graham Bell
-¿Cuántas veces no hemos escuchado esta frase dicha por una de las mentes más ingeniosas de la historia?
-
- 
-
-La realidad es que las personas que se preparan y obtienen un título ganan hasta un 70% más que las personas sin título profesional. Increíble, ¿no?
-
- 
-
-La preparación, sin duda, es un arma imprescindible para el mundo laboral de hoy que cada vez es más competitivo.
-
- 
-
-Por cierto, para aquellos inspirados por inventores como Alexander Graham Bell, la ingeniería industrial puede ser una gran opción. ¡Descubre más sobre la carrera aquí!
-                </p>
-               
+            <h1 class="presentacion__titulo">
+                Sobre <strong class="titulo-destaque">mí</strong>
+            </h1>
+            
+            <div class="about__content">
+                <article class="about__section">
+                    <h2 class="about__subtitle">Mi historia</h2>
+                    <p class="presentacion__texto">Tengo 19 años y actualmente estudio Ingeniería en Sistemas Informáticos, cursando el tercer semestre. Tengo una hermana de 11 años y estudié en el Colegio Sagrado Corazón de Jesús.</p>
+                    <p class="presentacion__texto">Me apasiona la tecnología, el desarrollo de software y estoy constantemente aprendiendo nuevas habilidades para mejorar mis capacidades profesionales.</p>
+                </article>
+                
+                <article class="about__section">
+                    <h2 class="about__subtitle">Mi filosofía</h2>
+                    <blockquote class="about__quote">
+                        <p>"Antes que nada, la preparación es la clave del éxito"</p>
+                        <footer>— Alexander Graham Bell</footer>
+                    </blockquote>
+                    <p class="presentacion__texto">Esta frase de uno de los inventores más importantes de la historia refleja mi enfoque hacia el aprendizaje y el desarrollo profesional.</p>
+                    <p class="presentacion__texto">La preparación académica es fundamental en el competitivo mundo laboral actual, donde los profesionales con formación especializada tienen mayores oportunidades.</p>
+                </article>
+                
+                <div class="about__skills">
+                    <h2 class="about__subtitle">Mis habilidades</h2>
+                    <ul class="skills__list">
+                        <li class="skill__item">Programación web</li>
+                        <li class="skill__item">Desarrollo frontend</li>
+                        <li class="skill__item">Trabajo en equipo</li>
+                        <li class="skill__item">Resolución de problemas</li>
+                    </ul>
+                </div>
+            </div>
         </section>
-        <img class="presentacion__imagen" src="WhatsApp Image 2025-02-17 at 07.23.19.jpeg" alt="Foto">
+        
+        <div class="presentacion__imagen about__image">
+            <img src="WhatsApp Image 2025-02-17 at 07.23.19.jpeg" alt="Foto de Andres Sebastian Soto Astete" width="400" height="500">
+        </div>
     </main>
     
-    <footer class="footer">
-        <p>Desarrollado por Andres Sebastian Soto Astete</p>
-    </footer>
+    <button id="back-to-top" class="back-to-top" title="Volver arriba">↑</button>
     
+    <footer class="footer">
+        <p class="footer__texto">Desarrollado por Andres Sebastian Soto Astete &copy; <span id="year"></span></p>
+    </footer>
+
+    <script src="java.js"></script>
 </body>
 </html>
-
