@@ -1,22 +1,24 @@
-const putData=()=>{
-    const update={
-        titulo:"Actualizado",
-        descripcion:"actualizado",
+const putData = () => {
+    const update = {
+        titulo: "Actualizado",
+        descripcion: "actualizado",
         fecha: new Date().toISOString()
     };
-    fetch ('${API_URL}/1', {
-        method:"PUT",
-        headers:{
-            "Content-Type": "aplication/json",
-            "Accept": "aplication/json"
+
+    fetch(`${API_URL}/07a5`, { // Cambiado a backticks para interpolación
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json", 
+            "Accept": "application/json" 
         },
-        body:JSON.stringify(update)
+        body: JSON.stringify(update)
     })
-    .then(Response=>{
-        if(!Response.ok){
-            throw new Error ('Error en la respuesta estado: ${response.status}')
+    .then(response => { 
+        if (!response.ok) {
+            throw new Error(`Error en la respuesta estado: ${response.status}`);
         }
-        return Response.json();
-    }).then(data=>showResult(data))
-    .catch(error=>showResult(error.message,true));
+        return response.json();
+    })
+    .then(data => showResult(data))
+    .catch(error => showResult(error.message, true));
 };
