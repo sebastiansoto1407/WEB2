@@ -1,0 +1,165 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    font-family: 'Open Sans',Arial,sans-serif;
+    background-color: beige;
+}
+
+#container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+h2 {
+    text-align: center;
+    font-size: 24px;
+    color: burlywood;
+    margin-bottom: 20px;
+}
+
+#newItem {
+    width: calc(100% - 120px);
+    padding: 10px;
+    font-size: 16px;
+    margin-right: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: border-color 0.3s ease;
+}
+
+#container button {
+    PADDING: 10px 20px;
+    font-size: 16px;
+    background-color: #2ecc71;
+    color: #f4f4f4;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.item{
+    text-align: center;
+
+}
+.control{
+    align-items: center;
+
+
+}
+
+.toggleBtn{
+    align-items: center;
+}
+
+#controls button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#output {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #34495e;
+}
+
+#taskList{
+    width: 200px;
+    height: auto;
+    align-items: center;
+    align-content: center;
+    content: normal;
+    align-self: auto;
+    list-style-type: none;
+    margin-top: 20px;
+    padding-left: 0;
+    margin: 0%;
+
+}
+
+
+#taskList .item {
+    background-color: #a3d6e3;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+
+#newItem {
+    width: calc(100% - 120px);
+    padding: 10px;
+    font-size: 16px;
+    margin-right: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+#newItem:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+#addBtn {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#addBtn:hover {
+    background-color: #2980b9;
+}
+
+
+
+#taskList .item:hover {
+    background-color: #bdc3c7;
+}
+
+
+
+
+#controls button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+#abajo {
+    color:cadetblue;
+    align-items: center;
+    text-align: center;
+    font-size: 300%;
+    background-color: #bdc3c7;
+
+    
+}
+
+
