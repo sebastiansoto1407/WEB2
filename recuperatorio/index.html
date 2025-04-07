@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Local Server</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Dosis&family=Open+Sans&family=Parisienne&display=swap" rel="stylesheet"
+    />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <h1>tablas</h1>
+    <input type="id" id="task" placeholder="task" >
+    <input type="fecha" id="fecha" placeholder="fecha">
+    <input type="descripcion" id="descripcion" placeholder="descripcion">
+    <input type="nombre" id="nombre" placeholder="nombre">
+    <input type="valor entero" id="valor entero" placeholder="valor entero">
+
+
+
+</body>
+<main>
+    <div class="controls">
+        <button class="btn btn-get" onclick="getData()">Actualizar</button>
+        <button class="btn btn-get" onclick="getData()">Eliminar</button>
+    </div>
+    <table>
+        <tr>
+          <th>id</th>
+          <th>task</th>
+          <th>fecha</th>
+          <th>Nombre</th>
+          <th>descripcion</th>
+          <th>valor entero</th>
+        </tr>
+        
+      </table>
+</main>
+</html>
+
+<style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+    
+    :root {
+    --primary: #d5daf1;
+    --secondary: #3f37c9;
+    --accent: #4895ef;
+    --dark: #1b263b;
+    --light: #f8f9fa;
+    --success: #4cc9f0;
+    --warning: #f72585;
+    --danger: #ef233c;
+    --border-radius: 8px;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Dosis', sans-serif;
+    font-size: 16px;
+}
+    main {
+    background-image: linear-gradient(
+        109.6deg,
+        rgba(62, 161, 219, 1) 11.2%,
+        rgba(93, 52, 236, 1) 100.2%
+    );
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+  } 
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  h1 {
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+    font-size: 2.5rem;
+  }
+  
+  .controls {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    box-shadow: var(--box-shadow);
+  }
+  
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .btn-get {
+    background-color: var(--accent);
+    color: white;
+  }
+  
+  .btn-post {
+    background-color: var(--success);
+    color: white;
+  }
+  
+  .btn-put {
+    background-color: var(--primary);
+    color: white;
+  }
+  
+  .btn-delete {
+    background-color: var(--danger);
+    color: white;
+  }
+  
+  .results {
+    background-color: white;
+    border-radius: var(--border-radius);
+    padding: 20px;
+    box-shadow: var(--box-shadow);
+    min-height: 200px;
+    overflow-x: auto;
+  }
+  
+  pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-family: 'Courier New', Courier, monospace;
+    color: #333;
+  }
+  
+  .status {
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: inline-block;
+  }
+  
+  .status-success {
+    background-color: #d1fae5;
+    color: #065f46;
+  }
+  
+  .status-error {
+    background-color: #fee2e2;
+    color: #b91c1c;
+  }
+  
+  @media (max-width: 768px) {
+    .controls {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .btn {
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+    
+    </style>

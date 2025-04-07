@@ -1,5 +1,5 @@
 const deleteData=()=>{
-    fetch(`${API_URL}/07a5`,{
+    fetch(`${API_URL}/a4fe`,{
         method:"DELETE",
         
     }).then(response=>{
