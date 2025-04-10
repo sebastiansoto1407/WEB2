@@ -1,0 +1,33 @@
+body {
+    font-family: sans-serif;
+    padding: 20px;
+    background: #f0f0f0;
+  }
+  .container {
+    max-width: 900px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  input {
+    margin: 5px;
+    padding: 8px;
+  }
+  button {
+    margin: 5px;
+    padding: 10px;
+  }
+  table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+  }
+  th, td {
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+  tr.selected {
+    background-color: #ffdddd;
+  }
+  

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini CRUD Simple</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Mini CRUD</h1>
+    <div class="form">
+      <input type="text" id="id" placeholder="ID">
+      <input type="text" id="descripcion" placeholder="Descripción">
+      <input type="date" id="fecha">
+      <input type="number" id="valor" placeholder="Valor">
+      <input type="text" id="nombre" placeholder="Nombre">
+      <input type="text" id="tarea" placeholder="Tarea">
+      <button onclick="guardarDato()">Actualizar Tabla</button>
+      <button onclick="borrarSeleccionado()">Borrar Seleccionado</button>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th><th>Descripción</th><th>Fecha</th>
+          <th>Valor</th><th>Nombre</th><th>Tarea</th>
+        </tr>
+      </thead>
+      <tbody id="tabla"></tbody>
+    </table>
+  </div>
+  <script src="js/script.js"></script>
+</body>
+</html>
