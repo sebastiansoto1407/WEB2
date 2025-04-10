@@ -1,4 +1,4 @@
-const input = document.querySelector("#newItem");
+const input = document.querySelector("#newItem"); //llamado al html
 const addBtn = document.querySelector("#addBtn");
 const taskList = document.querySelector("#taskList");
 const toggleBtn = document.querySelector("#toggleBtn");
@@ -6,56 +6,30 @@ const countBtn = document.querySelector("#countBtn");
 const output = document.querySelector("#output");
 
 
-function crearItem(texto) {
-    const li = document.createElement("li");
-    li.textContent = texto;
-    li.classList.add("item", "task");
+function crearItem(texto) { //creamos item
+    const li = document.createElement("li"); 
+    li.textContent = texto; //asigna al texto 
+    li.classList.add("item", "task"); //estamos poniendo estilos visuales 
 
     
 
-    // elimina
-    li.addEventListener("dblclick", () => {
-        taskList.removeChild(li);
+    li.addEventListener("dblclick", () => { //un llamada con clicks
+        taskList.removeChild(li);  //se elimina si se clikea
     });
 
-    return li;
+    return li; //va a retornar
 }
 
-//2
-addBtn.addEventListener("click", () => {
-    const texto = input.value.trim();
+addBtn.addEventListener("click", () => { //una llamada con clicks
+    const texto = input.value.trim(); //texto, trim se elimina expacios 
 
-    // si no se escribe nada un alert
-    if (texto === "") {
-        alert("Por favor, escribe una tarea.");
+    if (texto === "") {  
+        alert("por favor escribe una tarea.");
         return;
     }
 
-    // aagrega el nuevo elemento a la lista
-    const nuevoItem = crearItem(texto);
+    const nuevoItem = crearItem(texto); 
     taskList.appendChild(nuevoItem);
 
-    // limpia
-    input.value = "";
-});
-
-
-
-// 5 uenta items 
-countBtn.addEventListener("click", () => {
-    const total = taskList.querySelectorAll("li").length; //lo q cuenta
-    output.textContent = `Total de ítems: ${total}`; //el mensaje y el total de cuantas tareas tienes
-});
-
-
-
-//3
-document.querySelectorAll(".item").forEach((item) => {
-    item.dataset.relleno = "false"; 
-
-    item.addEventListener("click", () => {
-        const estaRelleno = item.dataset.relleno === "true";
-        item.dataset.relleno = (!estaRelleno).toString();
-        item.classList.toggle("relleno");
-    });
+    input.value = ""; //limpia                               
 });
