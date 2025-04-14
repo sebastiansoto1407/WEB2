@@ -16,6 +16,7 @@ function crearItem(texto) { //creamos item
     li.addEventListener("dblclick", () => { //un llamada con clicks
         taskList.removeChild(li);  //se elimina si se clikea
     });
+    
 
     return li; //va a retornar
 }
