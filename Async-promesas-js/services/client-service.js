@@ -1,6 +1,6 @@
 const crear_nueva_fila = (nombre,email)=>{ //recepciono datos 
     const fila = document.createElement('tr'); //creo una nueva fila en la tabla
-    //guarda el html
+    //guardo el html en una variable y tambien llamoa mis datos de entrada (nombre y email)
     const contenido = `
             <td class="td" data-td>
             ${nombre}
@@ -31,28 +31,29 @@ const crear_nueva_fila = (nombre,email)=>{ //recepciono datos
 };
 
 const table = document.querySelector("[data-table]");
-const lista_clientes= ()=>{
-    const promesa= new Promise((resolve,reject)=>{
-        const http = new XMLHttpRequest(); //variable con request con request http y xml
-        http.open("GET", "http://localhost.3000/perfil");
+
+const lista_clientes=()=>{
+    const promesa = new Promise((resolve, reject)=>{
+        const http = new XMLHttpRequest(); //varianle con request http y xml
+        http.open("GET","http://localhost:3000/perfil")
         http.send();
         http.onload=()=>{
             const response = JSON.parse(http.response);
-            if(http.response>=400){
+            if(http.response >= 400){
                 reject(response)
-            } else{
+            }
+            else{
                 resolve(response)
             }
-        }
+        };
     });
-    return promesa;
+    return promesa
 }
-
 lista_clientes()
 .then((data)=>{
     data.forEach((perfil)=>{
-        const nuevaFila= crear_nueva_fila(perfil.nombre,perfil.email);
+        const nuevaFila = crear_nueva_fila(perfil.nombre, perfil.email);
         table.appendChild(nuevaFila)
-    });
-})
-.catch((error)=> alert("No existe conexion"));
+    })
+})    
+.catch((error)=>alert("No existe contenido"));
