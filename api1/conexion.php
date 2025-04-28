@@ -98,4 +98,5 @@ switch($method){
 }
 $conn->close();
 
+//guardado 28/04
 ?>
