@@ -281,16 +281,16 @@ const crearCliente = (nombre, email) => {
   });
 };
 
-// Eliminar cliente
 const eliminarCliente = (id) => {
-  return fetch(`${API_URL}?id=eq.${id}`, {
-    method: 'DELETE',
-    headers: HEADERS
-  }).then(res => {
-    if (!res.ok) throw new Error('Error al eliminar cliente');
-    return res.json();
-  });
-};
+    return fetch(`${API_URL}?id=eq.${id}`, {
+      method: 'DELETE',
+      headers: HEADERS
+    }).then(res => {
+      if (!res.ok) throw new Error('Error al eliminar cliente');
+      return true; // ✅ ya no hacemos res.json()
+    });
+  };
+  
 
 // Obtener cliente por id
 const cliente = (id) => {

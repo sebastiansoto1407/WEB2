@@ -1,60 +1,71 @@
-import {clientService} from "../service/client-service.js"
-const crear_nueva_fila=(nombre,email,id)=>{
-    const fila = document.createElement('tr');
+import { clientService } from "../service/client-service.js";
 
-    const contenido = `
-            <td class="td" data-td>
-            ${nombre}
-            </td>
-            <td>${email}</td>
-            <td>
-            <ul class="table__button-control">
-                <li>
-                    <a
-                    href="../screens/editar_cliente.html?id=${id}"
-                    class="simple-button simple-button--edit"
-                    >Editar</a
-                    >
-                </li>
-                <li>
-                    <button
-                    class="simple-button simple-button--delete"
-                    type="button" id="${id}">
-                    Eliminar
-                    </button>
-                </li>
-                </ul>
-            </td>
-            `;
-        fila.innerHTML=contenido;
-        const btn =fila.querySelector("button")
-        btn.addEventListener("click",()=>{
-            const id=btn.id;
-            clientService.eliminarCliente(id)
-                .then(respuesta=>{
-                alert("eliminado")
-                window.location.reload();// recarga la pagina
-            }).catch(error=> alert("error"))
+// Función para crear cada fila de la tabla
+const crear_nueva_fila = (nombre, email, id) => {
+  const fila = document.createElement('tr');
 
-        })
+  const contenido = `
+    <td class="td" data-td>${nombre}</td>
+    <td>${email}</td>
+    <td>
+      <ul class="table__button-control">
+        <li>
+          <a href="../screens/editar_cliente.html?id=${id}" class="simple-button simple-button--edit">Editar</a>
+        </li>
+        <li>
+          <button class="simple-button simple-button--delete" type="button" data-id="${id}">
+            Eliminar
+          </button>
+        </li>
+      </ul>
+    </td>
+  `;
 
-        return fila; 
+  fila.innerHTML = contenido;
+
+  const btn = fila.querySelector("button");
+  btn.addEventListener("click", async () => {
+    const id = btn.dataset.id;
+    try {
+      await clientService.eliminarCliente(id);
+      alert("Cliente eliminado correctamente");
+      fila.remove(); // ✅ Elimina la fila sin recargar
+    } catch (error) {
+      alert("Error al eliminar");
+      console.error(error);
+    }
+  });
+
+  return fila;
 };
 
-// _----------- mejorado codigo ordenado limpio--------------
+// Llenar tabla al iniciar
 const table = document.querySelector("[data-table]");
-clientService
-.listaclientes()
-    .then((data)=>{
-    data.forEach(({nombre,email,id}) => {
-                const nuevaLinea= crear_nueva_fila(nombre,email,id)// llamo a 3 referencias
-                table.appendChild(nuevaLinea)
-                
-                });
-        
+clientService.listaClientes()
+  .then((data) => {
+    data.forEach(({ nombre, email, id }) => {
+      const nuevaLinea = crear_nueva_fila(nombre, email, id);
+      table.appendChild(nuevaLinea);
+    });
+  })
+  .catch((error) => {
+    alert("Ocurrió un error al cargar los clientes");
+    console.error(error);
+  });
 
-    console.log(data);// verifico datos 
-}).catch((error)=>alert("ocurrio un error"));
+// Funcionalidad del buscador
+const inputBuscar = document.getElementById('buscador');
+inputBuscar.addEventListener('input', () => {
+  const valor = inputBuscar.value.toLowerCase();
+  const filas = document.querySelectorAll("tbody tr");
+
+  filas.forEach(fila => {
+    const nombre = fila.querySelector("td").textContent.toLowerCase();
+    fila.style.display = nombre.includes(valor) ? "" : "none";
+  });
+});
+
+
 
 
 

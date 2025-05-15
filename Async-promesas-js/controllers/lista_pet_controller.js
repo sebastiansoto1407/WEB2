@@ -8,27 +8,45 @@ const crearFila = (nombre, especie, edad, id) => {
     <td>${nombre}</td>
     <td>${especie}</td>
     <td>${edad}</td>
-    <td><button data-id="${id}" class="button">Eliminar</button></td>
+    <td><button data-id="${id}" class="btn-eliminar">Eliminar</button></td>
   `;
 
-  fila.querySelector("button").addEventListener("click", async () => {
-    await petService.eliminarPet(id);
-    fila.remove();
+  fila.querySelector(".btn-eliminar").addEventListener("click", async () => {
+    try {
+      await petService.eliminarPet(id);
+      fila.remove();
+    } catch {
+      alert("Error al eliminar mascota");
+    }
   });
 
   return fila;
 };
 
-const cargarPets = async () => {
-  try {
-    const pets = await petService.listaPets();
-    pets.forEach(({ nombre, especie, edad, id }) => {
-      const fila = crearFila(nombre, especie, edad, id);
+petService.listaPets()
+  .then(pets => {
+    pets.forEach(p => {
+      const fila = crearFila(p.nombre, p.especie, p.edad, p.id);
       tabla.appendChild(fila);
     });
-  } catch (error) {
-    alert("Error al cargar mascotas");
-  }
-};
+  })
+  .catch(() => alert("Error al cargar mascotas"));
 
-cargarPets();
+
+
+
+  const inputBuscar = document.getElementById('buscador');
+
+inputBuscar.addEventListener('input', () => {
+  const valor = inputBuscar.value.toLowerCase();
+  const filas = document.querySelectorAll("tbody tr");
+
+  filas.forEach(fila => {
+    const nombre = fila.querySelector("td").textContent.toLowerCase();
+    if (nombre.includes(valor)) {
+      fila.style.display = "";
+    } else {
+      fila.style.display = "none";
+    }
+  });
+});
