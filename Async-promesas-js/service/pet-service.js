@@ -39,7 +39,6 @@ const crearPet = (nombre, especie, edad) => {
   });
 };
 
-// Eliminar mascota
 const eliminarPet = (id) => {
   return fetch(`${API_URL}?id=eq.${id}`, {
     method: 'DELETE',

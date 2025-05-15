@@ -84,7 +84,7 @@ export const productService = {
   crearProducto,
   eliminarProducto
 };
-// Código anterior PHP + MySQL (comentado)
+// 
 /*
 fetch("http://localhost/api/conexion.php", {
   method: "POST",

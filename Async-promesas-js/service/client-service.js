@@ -260,7 +260,6 @@ const listaClientes = () => {
   });
 };
 
-// Crear cliente (sin enviar id)
 const crearCliente = (nombre, email) => {
   const cliente = { nombre, email };
 
@@ -287,12 +286,11 @@ const eliminarCliente = (id) => {
       headers: HEADERS
     }).then(res => {
       if (!res.ok) throw new Error('Error al eliminar cliente');
-      return true; // ✅ ya no hacemos res.json()
+      return true; 
     });
   };
   
 
-// Obtener cliente por id
 const cliente = (id) => {
   return fetch(`${API_URL}?id=eq.${id}`, {
     headers: HEADERS
@@ -302,7 +300,6 @@ const cliente = (id) => {
   });
 };
 
-// Actualizar cliente
 const actualizarCliente = (nombre, email, id) => {
   return fetch(`${API_URL}?id=eq.${id}`, {
     method: 'PATCH',

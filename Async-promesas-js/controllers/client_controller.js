@@ -29,7 +29,7 @@ const crear_nueva_fila = (nombre, email, id) => {
     try {
       await clientService.eliminarCliente(id);
       alert("Cliente eliminado correctamente");
-      fila.remove(); // ✅ Elimina la fila sin recargar
+      fila.remove(); 
     } catch (error) {
       alert("Error al eliminar");
       console.error(error);
@@ -39,7 +39,6 @@ const crear_nueva_fila = (nombre, email, id) => {
   return fila;
 };
 
-// Llenar tabla al iniciar
 const table = document.querySelector("[data-table]");
 clientService.listaClientes()
   .then((data) => {
@@ -53,7 +52,6 @@ clientService.listaClientes()
     console.error(error);
   });
 
-// Funcionalidad del buscador
 const inputBuscar = document.getElementById('buscador');
 inputBuscar.addEventListener('input', () => {
   const valor = inputBuscar.value.toLowerCase();

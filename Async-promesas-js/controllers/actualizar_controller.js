@@ -23,7 +23,6 @@ if(perfil.nombre && perfil.email){
 };
 obtenerInfo();
 
-//-----------------------------------------
 formulario.addEventListener("submit",(evento)=>{
     evento.preventDefault();
     const url = new URL(window.location)
