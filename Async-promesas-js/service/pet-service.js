@@ -43,11 +43,9 @@ const eliminarPet = (id) => {
   return fetch(`${API_URL}?id=eq.${id}`, {
     method: 'DELETE',
     headers: HEADERS
-  }).then(res => {
-    if (!res.ok) throw new Error('Error al eliminar mascota');
-    return res.json();
   });
 };
+
 
 export const petService = {
   listaPets,

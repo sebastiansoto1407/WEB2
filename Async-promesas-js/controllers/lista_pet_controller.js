@@ -16,7 +16,9 @@ const crearFila = (nombre, especie, edad, id) => {
       await petService.eliminarPet(id);
       fila.remove();
     } catch {
-      alert("Error al eliminar mascota");
+      console.error("Error real al eliminar mascota:", error);
+alert("Error al eliminar mascota");
+
     }
   });
 

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Registrar Horario</title>
+  <link rel="stylesheet" href="css/estilos.css" />
+</head>
+<body>
+  <h1>Registrar Horario</h1>
+  <form id="formHorario">
+    <select id="sala" required>
+      <option value="">Seleccione una sala</option>
+    </select>
+
+    <select id="pelicula" required>
+      <option value="">Seleccione una película</option>
+    </select>
+
+    <input type="date" id="fecha" required />
+    <input type="time" id="hora" required />
+    <button type="submit">Registrar</button>
+  </form>
+
+  <p id="mensaje"></p>
+
+  <script type="module">
+    import { horarioService } from "./js/horario-service.js";
+
+    const cargarDatos = async () => {
+      const salas = await horarioService.obtenerSalas();
+      const peliculas = await horarioService.obtenerPeliculas();
+
+    };
+
+    cargarDatos();
+
+    document.getElementById("formHorario").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const id_sala = parseInt(document.getElementById("sala").value);
+      const id_pelicula = parseInt(document.getElementById("pelicula").value);
+      const fecha = document.getElementById("fecha").value;
+      const hora = document.getElementById("hora").value;
+
+      const res = await horarioService.registrar(id_sala, id_pelicula, fecha, hora);
+      document.getElementById("mensaje").textContent =
+        res.error ? "error al registrar horario." : "horario registrado con exito.";
+    });
+  </script>
+</body>
+</html>

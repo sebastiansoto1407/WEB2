@@ -68,16 +68,25 @@ const crearProducto = (nombre, precio, descripcion) => {
   });
 };
 
-const eliminarProducto = (id) => {
-  return fetch(`${API_URL}?id=eq.${id}`, {
-    method: 'DELETE',
-    headers: HEADERS
-  })
-  .then(res => {
-    if (!res.ok) throw new Error('Error al eliminar producto');
-    return res.json();
-  });
+const eliminarProducto = async (id) => {
+  try {
+    const response = await fetch(`${API_URL}?id=eq.${id}`, {
+      method: 'DELETE',
+      headers: HEADERS,
+    });
+
+    // ⚠️ Evita exigir .ok si no es necesario
+    if (response.status !== 200 && response.status !== 204) {
+      throw new Error("No se pudo eliminar el producto");
+    }
+
+    return true;
+  } catch (error) {
+    console.error("Error al eliminar producto:", error);
+    throw error;
+  }
 };
+
 
 export const productService = {
   listaProductos,
